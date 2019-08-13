@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/proxy-body-size: 15m
+spec:
+  rules:
+  - host: foo.domain.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: foo
+          servicePort: 80
+  - host: bar.domain.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: bar
+          servicePort: 80
