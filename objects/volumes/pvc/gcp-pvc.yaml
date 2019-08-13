@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: gcp-pvc
+spec:
+  storageClassName: "gcp-hdd"
+  volumeName: gcp-pv
+  accessModes:
+    - <ReadWriteOnce|ReadOnlyMany>
+  resources:
+    requests:
+      storage: 5G
